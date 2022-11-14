@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- bootstrap for the cards -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Dashboard</title>
+  </head> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <div class="container-fluid" >
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" style="background-color: #B2D3C2">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100" style="color:black">
+                    <p class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <span class="fs-5 d-none d-sm-inline" style="color:black; font-weight: bold;">Personal Expense Tracker</span>
+                        <img src="bank.png" style="width:50px;height: 50px;">
+                    </p>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                        <li class="nav-item mt-2" style="background-color:#00AD83; height: 50px; width: 150px; border-radius: 5px;">
+                            <a href="dashboard" class="nav-link align-middle px-0" style="color:black;">
+                               <span class="ms-1 d-none d-sm-inline">Home</span>
+                               <img src="house-outline.svg" style="width:20px;height:20px;margin-left: 5px;">
+                            </a>
+                        </li>
+                        <li class="nav-item mt-2">
+                            <a href="addexpense" class="nav-link px-0 align-middle" style="color:black;">
+                                <span class="ms-1 d-none d-sm-inline">Add Expense</span>
+                                <img src="pay.png" style="width:20px;height:20px;margin-left: 5px;">
+                            </a>
+                        </li>
+                        <li class="nav-item mt-2">
+                            <a href="modifyexpense" class="nav-link px-0 align-middle" style="color:black;">
+                                <span class="ms-1 d-none d-sm-inline">Modify Expense</span>
+                                <img src="edit_icon.svg" style="width:20px;height:20px;margin-left: 5px;">
+                            </a>
+                        </li>
+                        <li class="nav-item mt-2">
+                            <a href="analysis" class="nav-link px-0 align-middle" style="color:black;">
+                                <span class="ms-1 d-none d-sm-inline">View Analysis</span>
+                                <img src="graph.png" style="width:20px;height:20px;margin-left: 5px;">
+                            </a>
+                        </li>
+                        <li class="nav-item mt-2">
+                            <a href="rewards" class="nav-link px-0 align-middle" style="color:black;">
+                                <span class="ms-1 d-none d-sm-inline">Rewards & Goals</span>
+                                <img src="reward.png" style="width:20px;height:20px;margin-left: 5px;">
+                            </a>
+                        </li>                        
+                        <li class="nav-item mt-2">
+                            <a href="addcategory" class="nav-link px-0 align-middle" style="color:black;">
+                                <span class="ms-1 d-none d-sm-inline">Create category</span>
+                                <img src="category_add.webp" style="width:20px;height:20px;margin-left: 5px;">
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col py-3" style="background-color:#00AD83">
+                <h4 style="color:red;">{{ msg }}</h4>
+                <h3 style="color:black; text-align: center;">Welcome Back! {{ email }}</h3>
+                <div class="d-flex justify-content-end">
+                    <img src="wallet_money.webp"
+                        style="height: 30px; width:30px">
+                    <h4 style="margin-left:10px;">Wallet Balance: <span><h5 style="display:inline"><i>{{wallet}}</i></h5></span></h4>
+                    <a href="updatebalance"><img src="edit_pencil.png"
+                        style="margin-left:5px; height: 30px; width:30px"></a>
+                </div>
+                <h3>Here are your expenses:</h3>
+                <div class="card-deck">
+                    <!-- {% set count = 1 %} -->
+                    {% for expense in expenses %}
+
+                    <div class="card shadow-lg bg-white rounded" style="margin: 20px;width:20rem; height:20rem;">
+                        <div class="card-header" style="text-align: center;">
+                          <h4>Expense {{loop.index}}</h4>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-text">Amount Spent: <span style="color:#00AD83"> Rs {{expense[0]}}</span> 
+                                <br><br>Reason: <span style="color:#00AD83">{{expense[2]}}</span>
+                            <br><br>Category: <span style="color:#00AD83">{{expense[3]}}</span></h6>
+                        </div>
+                        <div class="card-footer text-muted" style="text-align:center">
+                            <h6>Date on which Expense was made: <span style="color:#00AD83">{{expense[1]}}</span></h6>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</html>
