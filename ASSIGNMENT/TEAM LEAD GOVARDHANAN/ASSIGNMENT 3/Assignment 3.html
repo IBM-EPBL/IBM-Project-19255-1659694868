@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Display Images in HTML</title>
+       
+        <div id="head1"><hr><h2>Ibm Object Storage</h2><hr></div>
+
+        <link rel="stylesheet" href="https://hospital-ibm.s3.jp-tok.cloud-object-storage.appdomain.cloud/ass3.css">
+    </head>
+    <body>
+        
+        <div id="img">
+           <div id="img1"><img src="https://hospital-ibm.s3.jp-tok.cloud-object-storage.appdomain.cloud/img1.jpg" width="250px" height="200px"></div><br>
+           <div id="img2">  <img src="https://hospital-ibm.s3.jp-tok.cloud-object-storage.appdomain.cloud/img2.png" width="250px" height="200px"></div><br><br>
+           <div id="img3"><img src="https://hospital-ibm.s3.jp-tok.cloud-object-storage.appdomain.cloud/img3.jpg" width="250px" height="200px"></div>
+        </div>
+        <div id="images">
+            <div id="img4"><img src="https://hospital-ibm.s3.jp-tok.cloud-object-storage.appdomain.cloud/img4.jpg" width="250px" height="200px"></div><br>
+           <div id="img5"> <img src="https://hospital-ibm.s3.jp-tok.cloud-object-storage.appdomain.cloud/img5.png" width="250px" height="200px"></div>
+           
+        </div>
+         
+        <script>
+            window.watsonAssistantChatOptions = {
+              integrationID: "f9483b20-48f7-459b-82fb-2c0dc849a0c9", // The ID of this integration.
+              region: "eu-gb", // The region your integration is hosted in.
+              serviceInstanceID: "cda8ae8b-6a87-4ca0-975a-f8be3aa067c6", // The ID of your service instance.
+              onLoad: function(instance) { instance.render(); }
+            };
+            setTimeout(function(){
+              const t=document.createElement('script');
+              t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+              document.head.appendChild(t);
+            });
+          </script>
+    </body>
+</html>
