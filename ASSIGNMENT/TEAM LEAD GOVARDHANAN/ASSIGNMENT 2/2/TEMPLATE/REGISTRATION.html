@@ -1,0 +1,86 @@
+<!DOCTYPE html>  
+<html>  
+<head>  <link rel="stylesheet" href="../static/style.css"></head>
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<title> Registration Page </title>
+<body>
+
+    <div class="cont" id="part1">
+        <form action="/success" method="post" >   
+          <br><br>
+                <h1> REGISTRATION FORM </h1>  
+                <br><br>
+                <label>Username : </label>  
+                <input type="text" placeholder="Enter Username" name="username" required id="un">  
+                <label>Email :</label>  
+                <input type="email" placeholder="Enter email" name="email" required id="mail">
+                <label>Password : </label>
+                <input type="password" placeholder="Enter Password" name="password" required> 
+				<label>Gender : </label>
+                <input type="radio" name="gender" value="male" class="ms"> <label for="gender" id="ma">Male</label>
+                <input type="radio" name="gender" value="female" class="ms"><label for="gender" id="fma">Female</label><br><br>
+                <label for="dept">Choose a Department:</label><br>
+                <select name="Department" id="dep">
+                    <option value="IT">IT</option>
+                    <option value="CSE">CSE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="ECE">ECE</option>
+                    <option value="CIVIL">CIVIL</option>
+                    <option value="MECH">MECH</option>
+                  </select><br>
+                <button type="submit" onclick="fun()">Login</button>  
+        </form> 
+  </div>   
+  <div class="part2" style="display: none;" id="an">
+        <h2>LOGIN SUCCESSFUL</h2>
+        <table>
+          <tr>
+            <td>User Name </td>
+            <td id="uname"></td>
+          </tr>
+
+          <tr>
+            <td>Email </td>
+            <td id="email"></td>
+          </tr>
+
+          <tr>
+            <td>Gender </td>
+            <td id="gend"></td>
+          </tr>
+
+          <tr>
+            <td>Department </td>
+            <td id="dept"></td>
+          </tr>
+        
+        </table>
+
+        <script>
+          function fun(){
+            var username=document.getElementById("un").value;
+            var mail=document.getElementById("mail").value;
+            var rates = document.getElementsByName('gender');
+              var gen;
+              for(var i = 0; i < rates.length; i++){
+                  if(rates[i].checked){
+                      gen = rates[i].value;
+                  }
+              }
+            var Dept=document.getElementById("dep").value;
+            document.getElementById("part1").style.display="none";
+      
+            document.getElementById("uname").innerHTML=username;
+            document.getElementById("email").innerHTML=mail;
+            document.getElementById("gend").innerHTML=gen;
+            document.getElementById("dept").innerHTML=Dept;
+            document.getElementById("an").style.display="flex";
+      
+          }
+        </script>
+  </div>
+
+
+
+</body>    
+</html> 
