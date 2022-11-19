@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body %} 
+<style>
+    body{
+        background-image:url(/static/images/bg2.png); background-repeat: no-repeat;background-attachment: fixed;background-size: cover;
+    }
+</style>
+<body>
+
+    <center><div style="margin-top: 10rem;background-color: aliceblue;width: 25rem;height:10rem;position: relative;">
+    <p> Currently your MONTHLY limit is ₹ {{y}} </p>
+
+<form action="/limitnum" method="POST">
+
+    <p> ENTER the MONTHLY LIMIT to avoid over EXPENSES</p> <br/>
+    <input type="number" name="number" required/> <span> 
+        <button style="background-color:  rgb(129, 57, 167);color: aliceblue" type="submit">ENTER</button>
+    </span>
+    
+
+
+
+</form>
+</div></center>
+</body>
+{% endblock %}

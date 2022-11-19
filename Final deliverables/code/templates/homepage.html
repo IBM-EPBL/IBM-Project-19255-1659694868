@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block body %} 
+<style>
+body{
+    background-image:url(/static/images/bg2.png); background-repeat: no-repeat;background-attachment: fixed;background-size: cover;
+}
+    H1 {
+       position: relative;
+       right: -790PX;
+       top: -400PX;
+       color: rgb(8, 30, 110);
+
+    }
+
+p{
+position: relative;
+right: -800px;
+top: -350px;
+font-family:monospace;
+color: rgb(222, 228, 234);
+}
+
+span{
+    position: relative;
+right: -800px;
+top: -360px;
+}
+
+
+   .ccc {
+        position: relative;
+        top:80px;
+        left:-100px;
+      
+    }
+   
+
+    
+    </style>
+    <div id=aa class="container">
+    <div class="ccc">
+        <img src="../static/images/images.png" style = "width: 640px;height:480px">
+        <h1>Welcome to BudgetTracker</h1>
+        <P>BudgetTracker web application helps<br> you to maintain budget<br>
+             and analyse the expense and helps<br> you lead an economical and well-balanced life</P>
+        <img height="13%" width="13%" style="position: relative; top: -690PX; left: -60PX;" src="../static/images/istockphoto-943300706-612x612.jpg">
+    </div>
+    <span  class="btn btn-outline-light">Let's Get Started</span>
+</div>
+
+{% endblock %}
